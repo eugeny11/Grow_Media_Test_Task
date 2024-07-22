@@ -151,7 +151,7 @@ input[type="checkbox"] {
     }
 
     form {
-        max-height: 80vh; /* Ограничивает максимальную высоту формы */
-        overflow-y: auto; /* Добавляет вертикальную прокрутку, если высота формы больше, чем высота экрана */
+        max-height: 80vh;
+        overflow-y: auto;
     }
 }
