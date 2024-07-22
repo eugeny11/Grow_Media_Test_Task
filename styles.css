@@ -10,6 +10,12 @@ body {
     overflow: auto;
 }
 
+input,
+select,
+button {
+    cursor: pointer;
+}
+
 form {
     background-color: #fff;
     padding: 20px;
