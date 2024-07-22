@@ -11,15 +11,17 @@ document
     const name = document.getElementById("name").value.trim();
     if (name === "") {
       isValid = false;
-      document.getElementById("nameError").textContent =
-        "Пожалуйста, введите имя.";
+      const nameError = document.getElementById("nameError");
+      nameError.textContent = "Пожалуйста, введите имя.";
+      nameError.classList.add("show");
     }
 
     const email = document.getElementById("email").value.trim();
     if (email === "" || !email.includes("@")) {
       isValid = false;
-      document.getElementById("emailError").textContent =
-        "Пожалуйста, введите корректный email.";
+      const emailError = document.getElementById("emailError");
+      emailError.textContent = "Пожалуйста, введите корректный email.";
+      emailError.classList.add("show");
     }
 
     const phone = document.getElementById("phone").value.trim();
@@ -31,30 +33,35 @@ document
       sanitizedPhone.length < 7
     ) {
       isValid = false;
-      document.getElementById("phoneError").textContent =
-        "Пожалуйста, введите корректный телефон.";
+      const phoneError = document.getElementById("phoneError");
+      phoneError.textContent = "Пожалуйста, введите корректный телефон.";
+      phoneError.classList.add("show");
     }
 
     const revenue = document.getElementById("revenue").value.trim();
     const revenuePattern = /^\d+\.\d+$/;
     if (revenue === "" || !revenuePattern.test(revenue)) {
       isValid = false;
-      document.getElementById("revenueError").textContent =
+      const revenueError = document.getElementById("revenueError");
+      revenueError.textContent =
         "Пожалуйста, введите корректный оборот (число с плавающей точкой).";
+      revenueError.classList.add("show");
     }
 
     const industry = document.getElementById("industry").value;
     if (industry === "") {
       isValid = false;
-      document.getElementById("industryError").textContent =
-        "Пожалуйста, выберите индустрию.";
+      const industryError = document.getElementById("industryError");
+      industryError.textContent = "Пожалуйста, выберите индустрию.";
+      industryError.classList.add("show");
     }
 
     const agreement = document.getElementById("agreement").checked;
     if (!agreement) {
       isValid = false;
-      document.getElementById("agreementError").textContent =
-        "Пожалуйста, примите правила сервиса.";
+      const agreementError = document.getElementById("agreementError");
+      agreementError.textContent = "Пожалуйста, примите правила сервиса.";
+      agreementError.classList.add("show");
     }
 
     if (isValid) {
@@ -91,4 +98,18 @@ function clearForm() {
   document.getElementById("revenue").value = "";
   document.getElementById("industry").value = "";
   document.getElementById("agreement").checked = false;
+}
+
+function setupFieldValidation() {
+  const fields = document.querySelectorAll("input, select");
+
+  fields.forEach((field) => {
+    field.addEventListener("input", function () {
+      const errorElement = document.getElementById(this.id + "Error");
+      if (errorElement) {
+        errorElement.classList.remove("show");
+        errorElement.textContent = "";
+      }
+    });
+  });
 }
