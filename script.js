@@ -23,8 +23,13 @@ document
     }
 
     const phone = document.getElementById("phone").value.trim();
-    const phonePattern = /^\+?[0-9\s\-]{7,15}$/;
-    if (phone === "" || !phonePattern.test(phone)) {
+    const phonePattern = /^\+?[\d\s\-\(\)]+$/;
+    const sanitizedPhone = phone.replace(/[\s\(\)\-]+/g, "");
+    if (
+      phone === "" ||
+      !phonePattern.test(phone) ||
+      sanitizedPhone.length < 7
+    ) {
       isValid = false;
       document.getElementById("phoneError").textContent =
         "Пожалуйста, введите корректный телефон.";
