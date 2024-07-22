@@ -25,6 +25,7 @@ form {
     max-width: 400px;
     box-sizing: border-box;
     overflow-y: auto;
+    margin-top: 0;
 }
 
 h2 {
