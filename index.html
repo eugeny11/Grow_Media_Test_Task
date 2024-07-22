@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестовое задание Гроу Медиа</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form id="businessForm">
+        <h2>Личная информация</h2>
+        <div class="form-group">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name">
+            <div id="nameError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <div id="emailError" class="error-message"></div>
+            
+        </div>
+        <div class="form-group">
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone">
+            <div id="phoneError" class="error-message"></div>
+        </div>
+        
+        <h2>Информация о бизнесе</h2>
+        <div class="form-group">
+            <label for="revenue">Ожидаемый оборот:</label>
+            <input type="number" id="revenue" name="revenue" step="0.01">
+            <div id="revenueError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="industry">Выбор индустрии:</label>
+            <select id="industry" name="industry">
+                <option value="">Выберите индустрию</option>
+                <option value="industry1">Индустрия 1</option>
+                <option value="industry2">Индустрия 2</option>
+                <option value="industry3">Индустрия 3</option>
+            </select>
+            <div id="industryError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="agreement" name="agreement">
+            <label for="agreement">Я принимаю правила сервиса</label>
+            <div id="agreementError" class="error-message"></div>
+        </div>
+        
+        <button type="submit" class="submit-btn">ОТПРАВИТЬ</button>
+    </form>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <p id="modal-message"></p>
+            <button id="ok-btn" class="submit-btn">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
