@@ -52,6 +52,7 @@ input[type="checkbox"] {
     cursor: pointer;
     float: right;
     border-radius: 3px;
+    text-transform: uppercase;
 }
 
 .submit-btn:hover {
